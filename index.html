@@ -148,9 +148,6 @@
         var desiredPixelRatio = 1; // Target devicePixelRatio for Unity
         var unityDevicePixelRatio = desiredPixelRatio / systemPixelRatio;
 
-      // Detect mobile devices
-      var isMobile = /Mobi|Android/i.test(navigator.userAgent);
-
 		function getDevicePixelRatio() {
 			// Get the default device pixel ratio from the browser
 			let devicePixelRatio = window.devicePixelRatio || 1;
@@ -178,7 +175,7 @@
 				//console.log(`Calculated Extra Scaling Factor (Aspect Ratio): ${extraScalingFactor}`);
 			}
 
-			console.log(`Final devicePixelRatio: ${devicePixelRatio} (Mobile: ${isMobile})`);
+			//console.log(`Final devicePixelRatio: ${devicePixelRatio} (Mobile: ${isMobile})`);
 			return devicePixelRatio;
 		}
 
