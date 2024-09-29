@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
+<head>
     <meta charset="utf-8">
-    <title>Catch The Thief</title>
+    <title>Brick Breaker Space</title>
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <style>
         html, body {
@@ -136,18 +136,22 @@
     <div id="unity-container">
         <canvas id="unity-canvas" tabindex="1"></canvas>
     </div>
+
     <script>
-      var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/CatchTheThiefWeb.loader.js";
-      var config = {
-        dataUrl: buildUrl + "/CatchTheThiefWeb.data",
-        frameworkUrl: buildUrl + "/CatchTheThiefWeb.framework.js",
-        codeUrl: buildUrl + "/CatchTheThiefWeb.wasm",
-        streamingAssetsUrl: "StreamingAssets",
-        companyName: "DefaultCompany",
-        productName: "Catch The Thief",
-        productVersion: "1.0",
-      };
+        // Unity loader configuration
+        var buildUrl = "Build";
+        var loaderUrl = buildUrl + "/BrickBreakerSpaceWeb.loader.js";
+        var config = {
+            dataUrl: buildUrl + "/BrickBreakerSpaceWeb.data",
+            frameworkUrl: buildUrl + "/BrickBreakerSpaceWeb.framework.js",
+            codeUrl: buildUrl + "/BrickBreakerSpaceWeb.wasm",
+            streamingAssetsUrl: "StreamingAssets",
+            companyName: "DefaultCompany",
+            productName: "Brick Breaker Space",
+            productVersion: "1.0",
+            // Uncomment the following line to match the canvas size
+            // matchWebGLToCanvasSize: false,
+        };
 
         // Prevent context menu on right-click
         document.addEventListener('contextmenu', event => event.preventDefault());
@@ -225,12 +229,9 @@
         function resizeCanvas() {
             const aspectRatio = 9 / 16;
             let width, height;
-
-            // Use window.innerWidth and window.innerHeight for both modes
             let availableWidth = window.innerWidth;
             let availableHeight = window.innerHeight;
 
-            // Calculate the ideal width and height to maintain aspect ratio
             if (availableHeight * aspectRatio <= availableWidth) {
                 height = availableHeight;
                 width = height * aspectRatio;
@@ -239,20 +240,8 @@
                 height = width / aspectRatio;
             }
 
-            // Adjust for device pixel ratio
-            let pixelRatio = window.devicePixelRatio || 1;
-            let widthInPixels = Math.floor(width * pixelRatio);
-            let heightInPixels = Math.floor(height * pixelRatio);
-
-            // Set the canvas size in CSS pixels
             canvas.style.width = width + 'px';
             canvas.style.height = height + 'px';
-
-            // Set the canvas size in actual pixels for sharpness
-            canvas.width = widthInPixels;
-            canvas.height = heightInPixels;
-
-            // Center the canvas within the container
             canvas.style.marginTop = ((availableHeight - height) / 2) + 'px';
         }
 
@@ -304,5 +293,5 @@
 
         document.body.appendChild(script);
     </script>
-  </body>
+</body>
 </html>
