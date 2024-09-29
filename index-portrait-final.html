@@ -181,8 +181,9 @@
 			// Get the default device pixel ratio from the browser
 			let devicePixelRatio = window.devicePixelRatio || 1;
 
-			// Detect mobile devices (use native ratio for mobile)
-			var isMobile = /Mobi|Android/i.test(navigator.userAgent);
+			// Detect mobile devices (Android, iPhone, iPad, iPod)
+			var isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
 
 			if (!isMobile) {
 				// Get screen dimensions
