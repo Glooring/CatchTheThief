@@ -1,0 +1,40 @@
+Now, I will show you my problem.
+As you know, I have windows scaling display at 150%
+
+If I refresh the webpage when I had zoom 100%.
+
+The FBO is:
+"
+Calculated FBO size: 193x343
+CatchTheThiefWeb.framework.js:10 Performance Warning: Recreating Offscreen FBO (193x343 => 212x377)"
+Which is not good.
+Should be 942x1675
+"
+
+And, if I refresh the page, when the zoom is at 25%:
+The FBO is:
+"
+Calculated FBO size: 2544x4523
+CatchTheThiefWeb.framework.js:10 Performance Warning: Recreating Offscreen FBO (2544x4523 => 3391x6029)"
+And if I not refresh the page and increase the zoom gradually to 100%, the FBO will be:
+"
+Calculated FBO size: 942x1675
+CatchTheThiefWeb.framework.js:10 Performance Warning: Recreating Offscreen FBO (942x1675 => 848x1507)"
+
+Why?
+Why now at 100% the FBO is 942x1675 if I started from 25% when I refreshed the page and increased to 100%.
+
+And why before, if I started refreshed page directly from 100%, the FBO was 193x343?
+
+What can I do, to make FBO to be 942x1675 everytime?
+
+And also if I set zoom 100% from the browser, it considers:
+"
+let zoomPercentage = window.devicePixelRatio * 100;
+"
+ to be = 150
+
+Can you make a solution for that?
+
+I want to be seen as the best FBO, regarding the zoom of the page, because I don't want to influence the zoom page the quality of the game.
+ For 1080x1920 fullscreen FBO, the best quality on my browser is 942x1675 for example, I want to be like that everytime, even if I start with 25% percentage zoom when I refresh page etc.
