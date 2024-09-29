@@ -182,27 +182,27 @@
 			let devicePixelRatio = window.devicePixelRatio || 1;
 
 			// Detect mobile devices (Android, iPhone, iPad, iPod)
-			//var isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+			var isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
 
-			//if (!isMobile) {
-			// Get screen dimensions
-			const screenWidth = window.screen.width;
-			const screenHeight = window.screen.height;
+			if (!isMobile) {
+				// Get screen dimensions
+				const screenWidth = window.screen.width;
+				const screenHeight = window.screen.height;
 
-			// Calculate aspect ratio
-			const aspectRatio = screenWidth / screenHeight;
+				// Calculate aspect ratio
+				const aspectRatio = screenWidth / screenHeight;
 
-			// Set the extra scaling factor to the aspect ratio
-			let extraScalingFactor = aspectRatio.toFixed(2);
+				// Set the extra scaling factor to the aspect ratio
+				let extraScalingFactor = aspectRatio.toFixed(2);
 
-			// Apply the calculated scaling factor based on the aspect ratio
-			devicePixelRatio = devicePixelRatio * extraScalingFactor;
+				// Apply the calculated scaling factor based on the aspect ratio
+				devicePixelRatio = devicePixelRatio * extraScalingFactor;
 
-			console.log(`Screen Resolution: ${screenWidth}x${screenHeight}`);
-			console.log(`Aspect Ratio: ${aspectRatio.toFixed(2)}`);
-			console.log(`Calculated Extra Scaling Factor (Aspect Ratio): ${extraScalingFactor}`);
-			//}
+				console.log(`Screen Resolution: ${screenWidth}x${screenHeight}`);
+				console.log(`Aspect Ratio: ${aspectRatio.toFixed(2)}`);
+				console.log(`Calculated Extra Scaling Factor (Aspect Ratio): ${extraScalingFactor}`);
+			}
 
 			console.log(`Final devicePixelRatio: ${devicePixelRatio} (Mobile: ${isMobile})`);
 			return devicePixelRatio;
