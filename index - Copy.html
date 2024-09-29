@@ -175,20 +175,18 @@
         var unityDevicePixelRatio = desiredPixelRatio / systemPixelRatio;
 
 		function getDevicePixelRatio() {
+			// Get the current devicePixelRatio (browser zoom + system scaling)
 			const devicePixelRatio = window.devicePixelRatio || 1;
-			
-			// Check if the user is on a mobile device
-			const isMobile = /Mobi|Android/i.test(navigator.userAgent);
-			
-			// Apply a smaller scaling factor on mobile devices to prevent memory overload
-			const extraScalingFactor = isMobile ? 1.0 : 1.5;  // Lower scaling on mobile, higher on desktop
 
-			// Calculate the final devicePixelRatio
+			// Apply an additional scaling factor for sharper rendering
+			const extraScalingFactor = 1.76; // You can adjust this factor as needed
+
+			// Final device pixel ratio is the product of both
 			const finalDevicePixelRatio = devicePixelRatio * extraScalingFactor;
 
 			// Log for debugging
 			console.log(`Detected devicePixelRatio: ${devicePixelRatio}`);
-			console.log(`Final devicePixelRatio with scaling (mobile: ${isMobile}): ${finalDevicePixelRatio}`);
+			console.log(`Final devicePixelRatio with extra scaling: ${finalDevicePixelRatio}`);
 
 			return finalDevicePixelRatio;
 		}
@@ -202,7 +200,7 @@
 			companyName: "DefaultCompany",
 			productName: "Catch The Thief",
 			productVersion: "1.0",
-			devicePixelRatio: getDevicePixelRatio() // Use the dynamic devicePixelRatio with adaptive scaling
+			devicePixelRatio: getDevicePixelRatio() // Apply the dynamic devicePixelRatio with extra scaling
 		};
 
 
